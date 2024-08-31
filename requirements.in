@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+python-dotenv
+loguru
+flake8
+isort
+pre-commit
+pytest
