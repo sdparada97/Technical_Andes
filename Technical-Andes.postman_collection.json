@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "5afb1f5a-02da-466a-b0ec-3b49a393d88f",
+		"name": "Technical-Andes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11032041",
+		"_collection_link": "https://personal-sergio.postman.co/workspace/Habi-API~588c93bb-c868-4849-af1d-213256763efd/collection/11032041-5afb1f5a-02da-466a-b0ec-3b49a393d88f?action=share&source=collection_link&creator=11032041"
+	},
+	"item": [
+		{
+			"name": "Update-Pokemon",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "andes",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "andes",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"types\": [\n    \"electric\",\n    \"fire\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/especifico/100",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"especifico",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Especifico",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/especifico/{{name_or_id}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"especifico",
+						"{{name_or_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-General",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/general/{{name_or_id}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"general",
+						"{{name_or_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "name_or_id",
+			"value": "100",
+			"type": "string"
+		}
+	]
+}
