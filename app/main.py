@@ -2,14 +2,22 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.api_router import api_router
+from app.database import mongo_lifespan
+from app.middleware.auth_middleware import AuthMiddleware
 from app.settings import settings
 
 # Application starts
 app = FastAPI(
-    title=settings.PROJECT_NAME, debug=settings.DEBUG, description=settings.DESCRIPTION, version=settings.VERSION
+    title=settings.PROJECT_NAME,
+    debug=settings.DEBUG,
+    description=settings.DESCRIPTION,
+    version=settings.VERSION,
+    lifespan=mongo_lifespan
 )
 
-origins = ["*"]  # CORS HAROLD
+origins = ["*"]
+
+app.add_middleware(AuthMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
@@ -19,6 +27,7 @@ app.add_middleware(
     allow_headers=["*"],
     max_age=3600,
 )
+
 
 app.include_router(api_router)
 

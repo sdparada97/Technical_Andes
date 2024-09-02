@@ -1,0 +1,25 @@
+version: '1.0'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: rootuser
+      MONGO_INITDB_ROOT_PASSWORD: rootpass
+    volumes:
+      - mongodb_data_container:/data/db
+
+  fastapi:
+    build: .
+    volumes:
+      - .:/Technical_Andes
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+
+volumes:
+  mongodb_data_container:
