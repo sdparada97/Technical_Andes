@@ -24,17 +24,17 @@ class BaseSettings:
     PROJECT_NAME = os.getenv('PROJECT_NAME')
     VERSION = os.getenv('VERSION')
     DESCRIPTION = os.getenv('DESCRIPTION')
-    DATABASE_URL = f"mongodb://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@172.17.0.2:{os.getenv('DATABASE_PORT')}"
+    DATABASE_URL = f"mongodb://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@mongo:{os.getenv('DATABASE_PORT')}"
 
 
 class DevSettings(BaseSettings):
     MODE = ModeEnum.development
-    DATABASE_URL = f"mongodb://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@172.17.0.2:{os.getenv('DATABASE_PORT')}"
+    DATABASE_URL = f"mongodb://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@mongo:{os.getenv('DATABASE_PORT')}"
 
 
 class ProdSettings(BaseSettings):
     MODE = ModeEnum.production
-    DATABASE_URL = f"mongodb://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@172.17.0.2:{os.getenv('DATABASE_PORT')}"
+    DATABASE_URL = f"mongodb://{os.getenv('DATABASE_USER')}:{os.getenv('DATABASE_PASSWORD')}@mongo:{os.getenv('DATABASE_PORT')}"
 
 
 @lru_cache()
