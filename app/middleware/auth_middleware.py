@@ -2,17 +2,42 @@ import base64
 from fastapi import FastAPI, HTTPException, Request, status
 from starlette.middleware.base import BaseHTTPMiddleware
 
+"""
+Diccionario que contiene las credenciales de usuarios válidos.
+La estructura es {'nombre_usuario': 'contraseña'}.
+"""
 USERS_CREDENTIALS = {
     "andes": "andes"
 }
 
 
 class AuthMiddleware(BaseHTTPMiddleware):
+    """
+    Middleware de autenticación basado en Basic Authentication.
+    
+    Este middleware verifica las credenciales de autorización en las solicitudes
+    entrantes y permite solo las solicitudes GET sin autenticación.
+    """
     def __init__(self, app: FastAPI):
         super().__init__(app)
         self.users_credentials = USERS_CREDENTIALS
 
     async def dispatch(self, request: Request, call_next):
+        """
+        Procesa la solicitud y llama al siguiente middleware o endpoint.
+        
+        Verifica las credenciales de autorización para solicitudes no GET.
+        
+        Args:
+            request (Request): La solicitud actual.
+            call_next: El siguiente middleware o endpoint a llamar.
+        
+        Returns:
+            Response: La respuesta procesada por el siguiente middleware o endpoint.
+        
+        Raises:
+            HTTPException: Si las credenciales son inválidas o no se proporcionan.
+        """
         if request.method != "GET":
             credentials = request.headers.get("Authorization")
             if not credentials:
