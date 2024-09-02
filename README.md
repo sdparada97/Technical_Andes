@@ -32,7 +32,16 @@ Estos conceptos estan implmentados en este microservicio donde se enctran en los
 Esto hace que haya una mayor independencia de todas las capas y esto nso brinda muchos beneficios como lo es la flexibilidad, mantenibilidad y para realizar pruebas es mucho mas sencillo.
 
 ## Pruebas de documentacion:
+![image](https://github.com/user-attachments/assets/7ca62ea1-67ad-4c69-bd1b-1cf48c48f41a)
 
+![image](https://github.com/user-attachments/assets/242416a6-7592-49e3-bd33-cd1e14d8d0c0)
+
+![image](https://github.com/user-attachments/assets/badb3d76-1886-48f7-ae52-37c7be60f82f)
+
+![image](https://github.com/user-attachments/assets/83aa5132-8722-4f13-ac15-f749eff11fdf)
+
+## OpenAPI (Swagger)
+![image](https://github.com/user-attachments/assets/70978bc5-3539-4b3a-ba02-fcd227dfe3fd)
 
 ## Instalación
 
